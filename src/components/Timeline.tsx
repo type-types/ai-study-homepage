@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaUsers, FaLightbulb, FaCode, FaRocket } from 'react-icons/fa'
+import { FaUsers, FaLightbulb, FaCode, FaRocket, FaPlug, FaExclamationTriangle, FaCog, FaCloud, FaPen } from 'react-icons/fa'
 
 const Timeline = () => {
   const [ref, inView] = useInView({
@@ -45,19 +45,44 @@ const Timeline = () => {
       icon: <FaCode className="text-xl" />
     },
     {
-      title: "Cursor 툴 이해",
-      description: "Cursor 툴에 대한 이해 및 AI 코딩 실습",
-      icon: <FaRocket className="text-xl" />
-    },
-    {
-      title: "멀티모달 AI",
+      title: "멀티모달 AI 체험",
       description: "DALL·E나 TTS 등 멀티모달 AI 도구 체험",
       icon: <FaLightbulb className="text-xl" />
     },
     {
-      title: "웹사이트 배포",
+      title: "Cursor AI 코딩",
+      description: "Cursor 툴에 대한 이해 및 AI 코딩 이해 및 실습",
+      icon: <FaRocket className="text-xl" />
+    },
+    {
+      title: "MCP 서버 연결",
+      description: "각종 MCP 서버 연결해보기 (Context7, Figma talk to MCP 등)",
+      icon: <FaPlug className="text-xl" />
+    },
+    {
+      title: "바이브 코딩의 위험성",
+      description: "바이브 코딩의 위험성 이해 (바이브 코딩은 위험헤!)",
+      icon: <FaExclamationTriangle className="text-xl" />
+    },
+    {
+      title: "Cursor 규칙 설정",
+      description: "Cursor 규칙 설정 개념 이해하기",
+      icon: <FaCog className="text-xl" />
+    },
+    {
+      title: "Palentir API 활용",
+      description: "Palentir API를 활용하여 뭔가 만들어보기",
+      icon: <FaCode className="text-xl" />
+    },
+    {
+      title: "Vercel 웹사이트 배포",
       description: "Vercel로 웹사이트 배포하기",
-      icon: <FaUsers className="text-xl" />
+      icon: <FaCloud className="text-xl" />
+    },
+    {
+      title: "Relume 화면 기획",
+      description: "Relume으로 빠르게 화면 기획하기",
+      icon: <FaPen className="text-xl" />
     }
   ]
 
@@ -83,6 +108,18 @@ const Timeline = () => {
     },
   }
 
+  const topicVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
   return (
     <section className="section-padding bg-white">
       <div className="container-max">
@@ -98,27 +135,25 @@ const Timeline = () => {
           </motion.h2>
 
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative max-w-4xl mx-auto">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-200 to-accent-200 rounded-full"></div>
+            <div className="absolute left-8 top-0 w-1 h-full bg-gradient-to-b from-primary-200 to-accent-200 rounded-full"></div>
             
             {timelineData.map((item, index) => (
               <motion.div
                 key={index}
-                className={`relative flex items-center mb-16 ${
-                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                }`}
+                className="relative flex items-start mb-16 pl-20"
                 variants={itemVariants}
               >
                 {/* Timeline Node */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center border-4 border-primary-200 z-10">
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white`}>
+                <div className="absolute left-2 top-6 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center border-4 border-primary-200 z-10">
+                  <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white`}>
                     {item.icon}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                <div className="flex-1">
                   <motion.div
                     className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 card-hover"
                     whileHover={{ scale: 1.02 }}
@@ -160,25 +195,35 @@ const Timeline = () => {
               📌 흥미로운 예시 주제들
             </h3>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <motion.div 
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+              variants={containerVariants}
+            >
               {exampleTopics.map((topic, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-lg p-4 shadow-md flex items-center card-hover"
-                  whileHover={{ scale: 1.02 }}
+                  className="bg-white rounded-lg p-4 shadow-md card-hover group"
+                  variants={topicVariants}
+                  whileHover={{ scale: 1.02, y: -2 }}
                 >
-                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                    <div className="text-primary-600">
-                      {topic.icon}
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-primary-200 transition-colors duration-300">
+                      <div className="text-primary-600 group-hover:text-primary-700 transition-colors duration-300">
+                        {topic.icon}
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">{topic.title}</h4>
-                    <p className="text-sm text-gray-600">{topic.description}</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-primary-700 transition-colors duration-300">
+                        {topic.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {topic.description}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaCheckCircle, FaUser, FaLightbulb, FaCode, FaRocket } from 'react-icons/fa'
+import { FaCheckCircle } from 'react-icons/fa'
 
 const TargetAudience = () => {
   const [ref, inView] = useInView({
@@ -12,47 +12,22 @@ const TargetAudience = () => {
   const targetAudience = [
     {
       text: "혼자 아이디어는 많은데 실행이 어려운 사람",
-      icon: <FaLightbulb className="text-2xl" />,
+      emoji: "💡➡️😰",
       color: "from-yellow-400 to-orange-500"
     },
     {
-      text: "제품을 만들고 싶은데 코딩/기획 둘 다 애매한 사람",
-      icon: <FaCode className="text-2xl" />,
+      text: "빠르게 만들고 배포하는 감각을 실전으로 익히고 싶은 사람",
+      emoji: "🚀✨",
       color: "from-blue-400 to-purple-500"
     },
     {
-      text: "GPT나 다양한 AI 툴을 써보고 싶지만 막막한 사람",
-      icon: <FaRocket className="text-2xl" />,
-      color: "from-green-400 to-blue-500"
-    },
-    {
-      text: "빠르게 만들고 배포하는 감각을 실전으로 익히고 싶은 사람",
-      icon: <FaUser className="text-2xl" />,
-      color: "from-pink-400 to-red-500"
-    },
-    {
-      text: "만들고 싶은 건 있는데, 어디서부터 시작할지 막막한 사람",
-      icon: <FaLightbulb className="text-2xl" />,
-      color: "from-indigo-400 to-purple-500"
-    },
-    {
-      text: "GPT나 AI 툴을 써보고 싶지만 실전에 적용해본 적 없는 사람",
-      icon: <FaCode className="text-2xl" />,
-      color: "from-teal-400 to-blue-500"
-    },
-    {
       text: "기획은 할 줄 아는데, 혼자 구현/배포는 어려운 사람",
-      icon: <FaRocket className="text-2xl" />,
+      emoji: "📋➡️😅",
       color: "from-purple-400 to-pink-500"
     },
     {
-      text: "아이디어를 빠르게 실현하고 싶은 초기 창업자/개발자/디자이너",
-      icon: <FaUser className="text-2xl" />,
-      color: "from-orange-400 to-red-500"
-    },
-    {
       text: "재미있게 듣고, 가볍게 배우고, 실전 감각까지 얻고 싶은 사람",
-      icon: <FaCheckCircle className="text-2xl" />,
+      emoji: "😊🎯",
       color: "from-green-400 to-teal-500"
     }
   ]
@@ -94,7 +69,7 @@ const TargetAudience = () => {
           </motion.h2>
 
           {/* Target Audience Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {targetAudience.map((item, index) => (
               <motion.div
                 key={index}
@@ -105,11 +80,9 @@ const TargetAudience = () => {
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
                 
-                {/* Icon */}
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 mx-auto mb-4">
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white shadow-lg`}>
-                    {item.icon}
-                  </div>
+                {/* Emoji */}
+                <div className="relative z-10 text-center mb-6">
+                  <div className="text-4xl mb-2">{item.emoji}</div>
                 </div>
 
                 {/* Text */}
@@ -137,12 +110,13 @@ const TargetAudience = () => {
                 🎯 이 중 하나라도 해당되신다면?
               </h3>
               <p className="text-lg text-gray-600 mb-6">
-                이 스터디가 바로 여러분을 위한 것입니다!
+                이 스터디가 바로 당신을 위한 것입니다!
               </p>
               <motion.button
                 className="btn-primary text-lg px-8 py-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://forms.gle/vTTv1X5gmv2sKzSZ9', '_blank')}
               >
                 지금 바로 신청하기 🚀
               </motion.button>

@@ -120,12 +120,13 @@ const Hero = () => {
           variants={fadeInUp}
         >
           <motion.button
-            className="btn-primary text-lg px-8 py-4 group relative overflow-hidden"
+            className="btn-primary text-lg px-8 py-4 relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => window.open('https://forms.gle/vTTv1X5gmv2sKzSZ9', '_blank')}
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-secondary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <span className="relative z-10">지금 신청하기</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </motion.button>
           
           <motion.button
