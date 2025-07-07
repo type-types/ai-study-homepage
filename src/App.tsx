@@ -7,7 +7,6 @@ import Timeline from './components/Timeline'
 import TargetAudience from './components/TargetAudience'
 import Benefits from './components/Benefits'
 import InstructorProfile from './components/InstructorProfile'
-import ApplicationForm from './components/ApplicationForm'
 import Footer from './components/Footer'
 
 function App() {
@@ -36,9 +35,6 @@ function App() {
       
       {/* Instructor Profile Section */}
       <InstructorProfile />
-      
-      {/* Application Form Section */}
-      <ApplicationForm />
       
       {/* Footer */}
       <Footer />
