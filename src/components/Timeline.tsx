@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaUsers, FaLightbulb, FaCode, FaRocket, FaPlug, FaExclamationTriangle, FaCog, FaCloud, FaPen } from 'react-icons/fa'
+import { FaUsers, FaLightbulb, FaCode, FaRocket, FaPlug, FaExclamationTriangle, FaCog, FaCloud, FaPen, FaTerminal } from 'react-icons/fa'
 
 const Timeline = () => {
   const [ref, inView] = useInView({
@@ -83,6 +83,11 @@ const Timeline = () => {
       title: "Relume 화면 기획",
       description: "Relume으로 빠르게 화면 기획하기",
       icon: <FaPen className="text-xl" />
+    },
+    {
+      title: "Gemini CLI",
+      description: "터미널 기반 오픈소스 AI 에이전트로 설치 및 실습. Gemini 2.5 Pro 모델 활용 가능(1M 토큰 컨텍스트, 분당 60 요청, 일일 1000 요청 무료). 코드 작성, 디버그, 멀티모달 작업, Google Search 연동, MCP 기반 자동화 실험",
+      icon: <FaTerminal className="text-xl" />
     }
   ]
 
