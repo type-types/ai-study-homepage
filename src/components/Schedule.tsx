@@ -94,6 +94,44 @@ const Schedule = () => {
             </motion.div>
           </motion.div>
 
+          {/* Requirements Section */}
+          <motion.div
+            className="mb-12"
+            variants={itemVariants}
+          >
+            <motion.div
+              className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-8 border-2 border-orange-200"
+              variants={itemVariants}
+            >
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-orange-800 mb-2">💳 참여 요구사항</h3>
+                <p className="text-orange-700">스터디 참여를 위해 아래 사항이 필요합니다</p>
+              </div>
+              
+              <div className="max-w-2xl mx-auto">
+                <div className="bg-white rounded-lg p-6 shadow-md border border-orange-200">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                        <span className="text-orange-600 font-bold text-lg">C</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">Cursor Pro 구독 필수</h4>
+                      <div className="space-y-2 text-gray-700">
+                        <p>• <span className="font-semibold">월 구독료:</span> $20/월 (현 환율 기준 약 28,000원)</p>
+                        <p>• <span className="font-semibold">고급 함수 호출:</span> 별도 비용 (사용량에 비례 청구, 예: 월 8,000~16,000원 구독료 외 추가 결제)</p>
+                        <p className="text-sm text-orange-600 mt-3">
+                          ⚠️ <span className="font-semibold">중요:</span> 스터디에서 사용하는 AI 코딩 기능들을 실습하기 위해 Cursor Pro 구독이 반드시 필요합니다.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
           {/* Schedule Table */}
           <motion.div
             className="bg-white rounded-xl shadow-lg overflow-hidden"

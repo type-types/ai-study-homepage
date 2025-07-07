@@ -124,7 +124,7 @@ const ComparisonTable = () => {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gradient-to-r from-gray-100 to-gray-50">
-                    <th className="px-6 py-4 text-left text-lg font-bold text-gray-900">구분</th>
+                    <th className="hidden md:table-cell px-6 py-4 text-left text-lg font-bold text-gray-900">구분</th>
                     <th className="px-6 py-4 text-left text-lg font-bold text-gray-700">기존 AI 스터디</th>
                     <th className="px-6 py-4 text-center text-lg font-bold text-primary-600">→</th>
                     <th className="px-6 py-4 text-left text-lg font-bold text-primary-600">개편된 AI 스터디</th>
@@ -138,7 +138,7 @@ const ComparisonTable = () => {
                       variants={itemVariants}
                       custom={index}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <span className="text-2xl mr-3">{item.icon}</span>
                           <span className="font-semibold text-gray-900">{item.category}</span>
@@ -148,26 +148,32 @@ const ComparisonTable = () => {
                         className="px-6 py-4 text-gray-600"
                         variants={slideInLeft}
                       >
-                        <div className="flex items-center">
-                          <FaTimes className="text-red-400 mr-2 flex-shrink-0" />
-                          <span>{item.old}</span>
+                        <div className="flex items-start">
+                          <FaTimes className="text-red-400 mr-2 mt-1 flex-shrink-0" />
+                          <div>
+                            <div className="md:hidden flex items-center mb-2">
+                              <span className="text-lg mr-2">{item.icon}</span>
+                              <span className="font-semibold text-gray-900 text-sm">{item.category}</span>
+                            </div>
+                            <span className="text-sm md:text-base">{item.old}</span>
+                          </div>
                         </div>
                       </motion.td>
-                      <td className="px-6 py-4 text-center">
+                      <td className="px-3 md:px-6 py-4 text-center">
                         <motion.div
                           animate={{ x: [0, 10, 0] }}
                           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                         >
-                          <FaArrowRight className="text-primary-500 text-xl" />
+                          <FaArrowRight className="text-primary-500 text-lg md:text-xl" />
                         </motion.div>
                       </td>
                       <motion.td
                         className="px-6 py-4 text-primary-700 font-medium"
                         variants={slideInRight}
                       >
-                        <div className="flex items-center">
-                          <FaCheck className="text-green-500 mr-2 flex-shrink-0" />
-                          <span>{item.new}</span>
+                        <div className="flex items-start">
+                          <FaCheck className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          <span className="text-sm md:text-base">{item.new}</span>
                         </div>
                       </motion.td>
                     </motion.tr>

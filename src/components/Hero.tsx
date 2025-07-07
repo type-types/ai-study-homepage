@@ -133,6 +133,12 @@ const Hero = () => {
             className="btn-secondary text-lg px-8 py-4"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const nextSection = document.querySelector('section:nth-of-type(2)')
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
           >
             자세히 보기
           </motion.button>
@@ -140,11 +146,26 @@ const Hero = () => {
 
         {/* Scroll Down Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex justify-center mt-12"
+          variants={fadeInUp}
         >
-          <FaArrowDown className="text-primary-400 text-2xl" />
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="cursor-pointer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => {
+              const nextSection = document.querySelector('section:nth-of-type(2)')
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
+          >
+            <div className="relative w-12 h-12 bg-primary-400/20 rounded-full flex items-center justify-center hover:bg-primary-400/30 transition-colors duration-300">
+              <FaArrowDown className="text-primary-400 text-xl" />
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
