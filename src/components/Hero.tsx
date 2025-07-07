@@ -146,7 +146,7 @@ const Hero = () => {
 
         {/* Scroll Down Indicator */}
         <motion.div
-          className="flex justify-center mt-12"
+          className="flex justify-center mt-36"
           variants={fadeInUp}
         >
           <motion.div
